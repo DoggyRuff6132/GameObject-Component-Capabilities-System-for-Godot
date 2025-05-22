@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://f4icpc3hcpri"]
+
+[ext_resource type="Script" uid="uid://b1d6s4nk6i4n1" path="res://Demo/GO-Com-Cap/Components/bow_component.gd" id="1_ucepq"]
+[ext_resource type="PackedScene" uid="uid://cd0xuc3iyul5a" path="res://Demo/Projectiles/arrow.tscn" id="2_2lw4s"]
+
+[node name="BowComponent" type="Node"]
+script = ExtResource("1_ucepq")
+projectile = ExtResource("2_2lw4s")
+component_name = "Bow Component"

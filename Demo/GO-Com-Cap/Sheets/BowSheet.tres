@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CapabilitySheet" load_steps=8 format=3 uid="uid://bocbqdo5084j4"]
+
+[ext_resource type="Script" uid="uid://bm1x7d74gsscy" path="res://Scripts/base_capability.gd" id="1_8u7i6"]
+[ext_resource type="Script" uid="uid://p16q73awh3q8" path="res://Demo/GO-Com-Cap/Capabilities/bow_charge_capability.gd" id="2_khim4"]
+[ext_resource type="Script" uid="uid://cu5ra65pkfniy" path="res://Demo/GO-Com-Cap/Capabilities/bow_shoot_capability.gd" id="3_184lo"]
+[ext_resource type="PackedScene" uid="uid://f4icpc3hcpri" path="res://Demo/GO-Com-Cap/Components/bow_component.tscn" id="4_7w1dc"]
+[ext_resource type="Script" uid="uid://dt6i4twjp6043" path="res://Scripts/capability_sheet.gd" id="5_tpa6a"]
+
+[sub_resource type="Resource" id="Resource_r2l74"]
+script = ExtResource("2_khim4")
+tick_group_order = 100
+metadata/_custom_type_script = "uid://p16q73awh3q8"
+
+[sub_resource type="Resource" id="Resource_8u7i6"]
+script = ExtResource("3_184lo")
+tick_group_order = 100
+metadata/_custom_type_script = "uid://cu5ra65pkfniy"
+
+[resource]
+script = ExtResource("5_tpa6a")
+default_capabilities = Array[ExtResource("1_8u7i6")]([SubResource("Resource_r2l74"), SubResource("Resource_8u7i6")])
+default_components = Array[PackedScene]([ExtResource("4_7w1dc")])
+default_sheets = Array[ExtResource("5_tpa6a")]([])
+metadata/_custom_type_script = "uid://dt6i4twjp6043"

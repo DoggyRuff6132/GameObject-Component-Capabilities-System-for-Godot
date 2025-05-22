@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://byh58uctiige0"]
+
+[ext_resource type="Script" uid="uid://d30wxsbjsa1sv" path="res://Scripts/capability_component.gd" id="1_tf6vu"]
+[ext_resource type="Script" uid="uid://dt6i4twjp6043" path="res://Scripts/capability_sheet.gd" id="2_507db"]
+[ext_resource type="Resource" uid="uid://bocbqdo5084j4" path="res://Demo/GO-Com-Cap/Sheets/BowSheet.tres" id="3_3dtet"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("3_3dtet")])
+default_capabilities = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
