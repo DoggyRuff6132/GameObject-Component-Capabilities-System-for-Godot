@@ -7,6 +7,9 @@
 size = Vector2(13, 2)
 
 [node name="Arrow" type="RigidBody2D"]
+mass = 0.05
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_abfn1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,3 +20,5 @@ shape = SubResource("RectangleShape2D_mixqe")
 position = Vector2(6.4, 0.4)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_lugvj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,14 +1,102 @@
-[gd_scene load_steps=4 format=3 uid="uid://byh58uctiige0"]
+[gd_scene load_steps=10 format=3 uid="uid://byh58uctiige0"]
 
 [ext_resource type="Script" uid="uid://d30wxsbjsa1sv" path="res://Scripts/capability_component.gd" id="1_tf6vu"]
 [ext_resource type="Script" uid="uid://dt6i4twjp6043" path="res://Scripts/capability_sheet.gd" id="2_507db"]
-[ext_resource type="Resource" uid="uid://bocbqdo5084j4" path="res://Demo/GO-Com-Cap/Sheets/BowSheet.tres" id="3_3dtet"]
+[ext_resource type="Resource" uid="uid://cptc2ecedw4l6" path="res://Demo/GO-Com-Cap/Sheets/BigRockSheet.tres" id="3_507db"]
+[ext_resource type="Resource" uid="uid://c40vkvv503u7j" path="res://Demo/GO-Com-Cap/Sheets/DamageableSheet.tres" id="4_507db"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_507db"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf6vu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_507db"]
+friction = 0.3
+bounce = 0.8
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dtet"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_507db"]
+normal = Vector2(-1, 0)
 
 [node name="World" type="Node2D"]
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(-206, -46)
 script = ExtResource("1_tf6vu")
-default_sheets = Array[ExtResource("2_507db")]([ExtResource("3_3dtet")])
-default_capabilities = null
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("3_507db")])
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("PlaceholderTexture2D_507db")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(50, -131)
+zoom = Vector2(2, 2)
+
+[node name="Box" type="RigidBody2D" parent="."]
+position = Vector2(80, -10)
+mass = 2.7
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("4_507db")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_tf6vu")
+
+[node name="Box2" type="RigidBody2D" parent="."]
+position = Vector2(80, -30)
+mass = 2.7
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("4_507db")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box2"]
+shape = SubResource("RectangleShape2D_tf6vu")
+
+[node name="Box3" type="RigidBody2D" parent="."]
+position = Vector2(100, -10)
+mass = 2.7
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("4_507db")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box3"]
+shape = SubResource("RectangleShape2D_tf6vu")
+
+[node name="Box4" type="RigidBody2D" parent="."]
+position = Vector2(100, -30)
+mass = 2.7
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("4_507db")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box4"]
+shape = SubResource("RectangleShape2D_tf6vu")
+
+[node name="Boulder" type="RigidBody2D" parent="."]
+position = Vector2(127, -10)
+mass = 50.0
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_tf6vu")
+default_sheets = Array[ExtResource("2_507db")]([ExtResource("4_507db")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder"]
+shape = SubResource("RectangleShape2D_tf6vu")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_507db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_3dtet")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_507db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(338, -64)
+shape = SubResource("WorldBoundaryShape2D_507db")

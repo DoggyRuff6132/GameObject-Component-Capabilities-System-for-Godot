@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://j8x8i2fwdmyr"]
+
+[sub_resource type="GDScript" id="GDScript_piqo3"]
+script/source = "extends Node
+class_name CollisionComponent
+
+@export var component_name = \"Collision Component\"
+
+var owner_body : PhysicsBody2D
+
+var colliding_with : Array = []
+func is_colliding(body) -> bool:
+	return colliding_with.find(body)
+
+var most_recent_collision
+func get_most_recent_collision():
+	return most_recent_collision
+
+func _ready():
+	owner_body = get_parent()
+	owner_body.body_entered.connect(on_body_entered)
+	owner_body.body_exited.connect(on_body_exited)
+
+func on_body_entered(body : Node):
+	colliding_with.append(body)
+	most_recent_collision = body
+
+func on_body_exited(body : Node):
+	colliding_with.erase(body)
+"
+
+[node name="CollisionComponent" type="Node"]
+script = SubResource("GDScript_piqo3")

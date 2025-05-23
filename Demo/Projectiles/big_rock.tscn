@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc7du7s12tmky"]
+
+[ext_resource type="Script" uid="uid://dwdw1mpqf5iuo" path="res://Demo/Projectiles/arrow.gd" id="1_qgj0u"]
+[ext_resource type="Texture2D" uid="uid://c3bs8l06pjywn" path="res://Demo/Projectiles/DwayneJohnson.jpg" id="2_qgj0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mixqe"]
+size = Vector2(56, 24)
+
+[node name="Big Rock" type="RigidBody2D"]
+mass = 118.0
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_qgj0u")
+max_power = 1500.0
+damage = 1000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mixqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 2.98023e-08)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_qgj0u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

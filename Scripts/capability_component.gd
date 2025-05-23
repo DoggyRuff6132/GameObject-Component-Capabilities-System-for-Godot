@@ -1,5 +1,7 @@
-extends BaseComponent
+extends Node
 class_name CapabilityComponent
+
+@export var component_name = "Capability Component"
 
 var tag_blockers : Dictionary[StringName, InstigatorArray]
 

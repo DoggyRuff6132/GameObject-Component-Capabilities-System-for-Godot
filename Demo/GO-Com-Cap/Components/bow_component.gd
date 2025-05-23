@@ -1,5 +1,7 @@
-extends BaseComponent
+extends Node
 class_name BowComponent
+
+@export var component_name = "Bow Component"
 
 @export var max_charge = 1.0
 @export var minimum_charge_proportion = 0.05

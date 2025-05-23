@@ -6,4 +6,3 @@
 [node name="BowComponent" type="Node"]
 script = ExtResource("1_ucepq")
 projectile = ExtResource("2_2lw4s")
-component_name = "Bow Component"

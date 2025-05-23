@@ -21,7 +21,7 @@ func _should_deactivate() -> bool:
 
 func _tick_active(delta : float):
 	bow_component.add_charge(delta)
-	print("bow_charge_capability.gd: " + str(bow_component.get_bow_charge()))
+	#print("bow_charge_capability.gd: " + str(bow_component.get_bow_charge()))
 
 func _on_activated():
 	print("bow_charge_capability.gd: Charging Bow")

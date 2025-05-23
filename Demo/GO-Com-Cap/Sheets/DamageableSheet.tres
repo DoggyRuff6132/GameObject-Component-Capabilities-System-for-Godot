@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CapabilitySheet" load_steps=6 format=3 uid="uid://c40vkvv503u7j"]
+
+[ext_resource type="Script" uid="uid://bm1x7d74gsscy" path="res://Scripts/base_capability.gd" id="1_3hipm"]
+[ext_resource type="Script" uid="uid://ctf10ym6gpodo" path="res://Demo/GO-Com-Cap/Capabilities/box_destroy_capability.gd" id="2_4ssfx"]
+[ext_resource type="Script" uid="uid://dt6i4twjp6043" path="res://Scripts/capability_sheet.gd" id="2_fd2q0"]
+[ext_resource type="PackedScene" uid="uid://dxmk2lavc1eim" path="res://Demo/GO-Com-Cap/Components/health_component.tscn" id="3_lkfug"]
+
+[sub_resource type="Resource" id="Resource_4ssfx"]
+script = ExtResource("2_4ssfx")
+tick_group_order = 100
+metadata/_custom_type_script = "uid://ctf10ym6gpodo"
+
+[resource]
+script = ExtResource("2_fd2q0")
+default_capabilities = Array[ExtResource("1_3hipm")]([SubResource("Resource_4ssfx")])
+default_components = Array[PackedScene]([ExtResource("3_lkfug")])
+default_sheets = Array[ExtResource("2_fd2q0")]([])
+metadata/_custom_type_script = "uid://dt6i4twjp6043"
